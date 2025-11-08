@@ -1,0 +1,70 @@
+<?php
+// Archivo: ver_productos.php
+include 'db_connection.php'; 
+
+$sql = "SELECT Id_producto, Nombre_producto, ID_almacen_productos, Cantidad, Precio FROM Productos";
+$resultado = $conn->query($sql);
+
+$conn->close();
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ver Productos</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 40px; background-color: #f8f9fa; color: #343a40; }
+        .container { max-width: 900px; margin: auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        h1 { text-align: center; color: #ffc107; border-bottom: 2px solid #ffc107; padding-bottom: 10px; margin-bottom: 30px; }
+        .menu a { margin-right: 15px; text-decoration: none; color: #6c757d; font-weight: bold; transition: color 0.3s; }
+        .menu a:hover { color: #ffc107; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #dee2e6; }
+        th { background-color: #e9ecef; color: #343a40; font-weight: 600; }
+        tr:hover { background-color: #f1f1f1; }
+        .no-registros { text-align: center; color: #dc3545; padding: 20px; border: 1px solid #dc3545; background-color: #f8d7da; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📦 Inventario de Productos</h1>
+        <div class="menu">
+            <a href="index.php">🏠 Inicio</a> |
+            <a href="registrar_producto.php">➕ Nuevo Producto</a> |
+            <a href="buscar_producto.php">🔎 Buscar Productos</a>
+        </div>
+        <hr style="margin: 20px 0;">
+
+        <?php if ($resultado->num_rows > 0): ?>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID Producto</th>
+                        <th>Nombre</th>
+                        <th>Almacén (ID)</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php while($fila = $resultado->fetch_assoc()): ?>
+                    <tr>
+                        <td><?php echo $fila['Id_producto']; ?></td>
+                        <td>**<?php echo htmlspecialchars($fila['Nombre_producto']); ?>**</td>
+                        <td><?php echo $fila['ID_almacen_productos']; ?></td>
+                        <td>$<?php echo number_format($fila['Precio'], 2); ?></td>
+                        <td><?php echo $fila['Cantidad']; ?></td>
+                    </tr>
+                    <?php endwhile; ?>
+                </tbody>
+            </table>
+        <?php else: ?>
+            <div class="no-registros">
+                Aún no hay productos registrados en el inventario.
+            </div>
+        <?php endif; ?>
+
+    </div>
+</body>
+</html>
