@@ -37,6 +37,24 @@ El archivo index.php actúa como el núcleo del sistema, conectando con los sigu
  - ├── ver_productos.php        # Listado de inventario
  - ├── ver_ventas.php           # Historial transaccional
  - └── buscar_producto.php      # Motor de búsqueda
+
+ ---
+
+## 📰 Diagramas del proyecto
+
+### 🔷 Diagrama EER
+<img width="1280" height="720" alt="Diapositiva2" src="https://github.com/user-attachments/assets/54b8bffd-610c-400e-8d8c-7b467f1e68b7" />
+
+ ---
+
+ ### 🔷 Diagrama relacional
+ <img width="1280" height="720" alt="Diapositiva3" src="https://github.com/user-attachments/assets/bb21bef3-7b9c-4751-a6e1-84d5679816d2" />
+
+ ---
+
+
+
+
 ## 💻 Instalación y Uso
 
 ## 🎨 Vista Previa de la Interfaz
