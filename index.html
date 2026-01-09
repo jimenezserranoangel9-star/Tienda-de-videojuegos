@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración de Tienda</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #e9ecef; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        .panel-container { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); width: 90%; max-width: 600px; text-align: center; }
+        h1 { color: #343a40; margin-bottom: 30px; border-bottom: 3px solid #007bff; padding-bottom: 10px; font-size: 1.8em; }
+        .seccion-titulo { font-size: 1.2em; color: #495057; margin-top: 30px; margin-bottom: 15px; font-weight: 600; border-left: 5px solid #007bff; padding-left: 10px; text-align: left; }
+        .opciones { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .opciones a {
+            padding: 15px;
+            text-decoration: none;
+            color: white;
+            border-radius: 8px;
+            font-size: 0.95em;
+            font-weight: bold;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-align: center;
+        }
+        .opciones a:hover { transform: translateY(-3px); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); }
+        
+        /* Estilos de Registro */
+        .opciones .reg-cliente { background-color: #28a745; }
+        .opciones .reg-producto { background-color: #007bff; }
+        .opciones .reg-venta { background-color: #dc3545; }
+
+        /* Estilos de Consulta y Búsqueda */
+        .opciones .ver-cliente { background-color: #20c997; }
+        .opciones .ver-producto { background-color: #ffc107; }
+        .opciones .ver-venta { background-color: #6f42c1; }
+        .opciones .buscar { background-color: #17a2b8; } /* Búsqueda */
+
+    </style>
+</head>
+<body>
+    <div class="panel-container">
+        <h1>🛠️ Panel de Administración de Tienda</h1>
+        
+        <div class="seccion-titulo">➕ Opciones de **REGISTRO**</div>
+        <div class="opciones">
+            <a href="registrar_cliente.html" class="reg-cliente">
+                👤 Registrar Cliente
+            </a>
+            
+            <a href="registrar_producto.html" class="reg-producto">
+                📦 Registrar Producto
+            </a>
+            
+            <a href="registrar_venta.html" class="reg-venta" style="grid-column: 1 / span 2;">
+                🛒 Registrar Venta
+            </a>
+        </div>
+        
+        <div class="seccion-titulo" style="margin-top: 40px;">🔍 Opciones de **CONSULTA**</div>
+        <div class="opciones">
+            <a href="ver_clientes.html" class="ver-cliente">
+                Ver Clientes
+            </a>
+            
+            <a href="ver_productos.html" class="ver-producto">
+                Ver Inventario
+            </a>
+            
+            <a href="ver_ventas.html" class="ver-venta">
+                Ver Historial de Ventas
+            </a>
+
+            <a href="buscar_producto.html" class="buscar" style="grid-column: 1 / span 2;">
+                🔎 **Buscar Productos**
+            </a>
+        </div>
+        
+    </div>
+</body>
+</html>
